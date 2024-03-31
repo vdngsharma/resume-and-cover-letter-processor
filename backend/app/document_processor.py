@@ -13,7 +13,7 @@ class DocumentProcessor:
         self.job_id = data.get('job_id')
         type_ = data.get('type')
 
-        if type_ is 'NonTechnical': 
+        if type_ is 'nonTechnical': 
             self.doc = Document(self.env_vars.get('NON_TECHNICAL_COVER_LETTER_PATH'))
         else:
             self.doc = Document(self.env_vars.get('TECHINCAL_COVER_LETTER_PATH'))
