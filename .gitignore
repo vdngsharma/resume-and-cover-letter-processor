@@ -1,2 +1,4 @@
 /env
 skunkworks.py
+.env
+__pycache__/
