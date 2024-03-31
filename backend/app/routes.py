@@ -1,9 +1,13 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS, cross_origin
 from document_processor import DocumentProcessor
 
 app = Flask(__name__)
+CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
-@app.route('/process_document', methods = ['POST'])
+@app.route('/process', methods = ['POST', 'OPTION'])
+@cross_origin()
 def process_word():
     try:
         data = request.json
@@ -15,4 +19,4 @@ def process_word():
         return jsonify({'error': str(e)}), 500
     
 if __name__ == '__main__':
-    app.run(debug = True, port = 5001)
+    app.run(port = 5000)

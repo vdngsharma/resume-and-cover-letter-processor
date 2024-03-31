@@ -6,6 +6,7 @@ from docx2pdf import convert
 class DocumentProcessor:
 
     def __init__(self, data):
+        print(data)
         self.env_vars = dotenv_values('.env')
         self.target_word = data.get('target_word')
         self.replacement_word = data.get('replacement_word')
@@ -13,7 +14,7 @@ class DocumentProcessor:
         self.job_id = data.get('job_id')
         type_ = data.get('type')
 
-        if type_ is 'nonTechnical': 
+        if type_ == 'nonTechnical': 
             self.doc = Document(self.env_vars.get('NON_TECHNICAL_COVER_LETTER_PATH'))
         else:
             self.doc = Document(self.env_vars.get('TECHINCAL_COVER_LETTER_PATH'))
