@@ -6,17 +6,17 @@ app = Flask(__name__)
 CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-@app.route('/process', methods = ['POST', 'OPTION'])
+@app.route('/api/process_document', methods = ['POST', 'OPTION'])
 @cross_origin()
 def process_word():
     try:
         data = request.json
-        word_processor = DocumentProcessor(data)
-        word_processor.process_document()
+        DocumentProcessor(data)
 
-        return jsonify({'message': 'Cover Letter processed successfullly'}), 200
+        return jsonify({'message': 'Documents Generated Successfully'}), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
     
 if __name__ == '__main__':
-    app.run(port = 5000)
+    app.run(port = 5001)
+    

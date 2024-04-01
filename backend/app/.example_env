@@ -1,0 +1,4 @@
+NON_TECHNICAL_COVER_LETTER_PATH=path/to/sample/techincal/cover/letter
+TECHNICAL_COVER_LETTER_PATH=path/to/sample/non-techincal/cover/letter
+NAME=You Full Name
+SAVE_DIRECTORY_PATH=Path/to/directory/for/saving/cover-letters
