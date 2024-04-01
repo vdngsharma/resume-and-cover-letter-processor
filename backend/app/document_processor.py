@@ -67,7 +67,8 @@ class DocumentProcessor:
 
         if os.path.isfile(pdf_file_save_path):
             os.remove(pdf_file_save_path)
-            comtypes.CoInitialize()
-            
-        convert(docx_file_save_path)
-            
+        comtypes.CoInitialize()
+        try:
+            convert(docx_file_save_path)
+        except Exception as e:
+            print(e)
