@@ -1,9 +1,10 @@
 import React from 'react';
+import './styles.css';
 
 const JobTitle = ({value, onChange}) => {
     return (
-        <label>
-          Job Title:
+      <label className='label'>
+        JOB TITLE
           <input
           type = "text"
           value = {value}

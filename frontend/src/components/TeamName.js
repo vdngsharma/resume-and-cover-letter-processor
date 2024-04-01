@@ -2,7 +2,7 @@ import React from 'react';
 
 const TeamName = ({value, onChange}) => {
     return (
-        <label>
+        <label className='label'>
           Team Name:
           <input
           type = "text"

@@ -2,8 +2,8 @@ import React from 'react';
 
 const Date = ({value, onChange}) => {
     return (
-        <label>
-          Date:
+        <label className='label'>
+          DATE
           <input
           type = "text"
           value = {value}

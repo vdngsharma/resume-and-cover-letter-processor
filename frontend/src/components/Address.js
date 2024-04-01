@@ -1,9 +1,10 @@
 import React from 'react';
+import './styles.css';
 
 const Address = ({value, onChange}) => {
     return (
-        <label>
-          Address:
+      <label className='label'>
+          ADDRESS
           <input
           type = "text"
           value = {value}

@@ -19,6 +19,7 @@ function App() {
   const [organizationName, setOrganizationName] = useState('');
   const [teamName, setTeamName] = useState('');
   const [duties, setDuties] = useState('');
+  const [responseMessage, setResponseMessage] = useState('');
 
   const handleGenerate = async () => {
     const requestBody = {
@@ -31,15 +32,14 @@ function App() {
       teamName: teamName,
       duties: duties
     };
-    console.log(requestBody);
     try {
-      const response = await axios.post('http://localhost:5000/generate', 
+      const response = await axios.post('http://localhost:5001/api/process_document', 
       requestBody,
       {
       headers: {
           'Content-Type': 'application/json',
       }});
-      console.log(response.data);
+      setResponseMessage(response.data.message);
     } catch(error) {
       console.error('Error while making API call:', error);
     }
@@ -47,7 +47,7 @@ function App() {
 
   return (
     <div>
-        <div>
+        <div className='radio'>
         <label>
           <input
           type = "radio"
@@ -67,43 +67,43 @@ function App() {
           Non Technical
         </label>
         </div>
-        <div>
+        <div className='container'>
           <JobID
           value = {jobId}
           onChange = {(e) => setJobId(e.target.value)}
           />
         </div>
-        <div>
+        <div className='container'>
           <Date
           value = {date}
           onChange = {(e) => setDate(e.target.value)}
           />
         </div>
-        <div>
+        <div className='container'>
           <Address
           value = {address}
           onChange = {(e) => setAddress(e.target.value)}
           />
         </div>
-        <div>
+        <div className='container'>
           <JobTitle
           value = {jobTitle}
           onChange = {(e) => setJobTitle(e.target.value)}
           />
         </div>
-        <div>
+        <div className='container'>
           <OrganizationName
           value = {organizationName}
           onChange = {(e) => setOrganizationName(e.target.value)}
           />
         </div>
-        <div>
+        <div className='container'>
           <TeamName
           value = {teamName}
           onChange = {(e) => setTeamName(e.target.value)}
           />
         </div>
-        <div>
+        <div className='container'>
           <Duties
           value = {duties}
           onChange = {(e) => setDuties(e.target.value)}
@@ -111,7 +111,12 @@ function App() {
         </div>
       <div>
       </div>
-      <button onClick = {handleGenerate}>Generate</button>
+      <div className='container'>
+        <button onClick = {handleGenerate}>Generate</button>
+      </div>
+      <div>
+        {responseMessage}
+      </div>
     </div>
   )
 }

@@ -2,7 +2,7 @@ import React from 'react';
 
 const OrganizationName = ({value, onChange}) => {
     return (
-        <label>
+        <label className='label'>
           Organization Name:
           <input
           type = "text"
